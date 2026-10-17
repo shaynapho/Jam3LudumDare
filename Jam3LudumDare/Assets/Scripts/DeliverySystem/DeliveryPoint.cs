@@ -1,7 +1,9 @@
 using UnityEngine;
+using TMPro;
 
 public class DeliveryPoint : MonoBehaviour
 {
+    public GameObject deliveryPrompt;
     // tracks whether this delivery has been completed
     private bool delivered = false;
     // checks if the player is close enough
@@ -17,6 +19,7 @@ public class DeliveryPoint : MonoBehaviour
             // update the game's delivery progress
             GameProgressManager.instance.CompleteDelivery();
 
+            deliveryPrompt.SetActive(false);
             Debug.Log("water delivered");
         }
     }
@@ -24,9 +27,10 @@ public class DeliveryPoint : MonoBehaviour
     // player enters the delivery area
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && !delivered)
         {
             playerNearby = true;
+            deliveryPrompt.SetActive(true);
             Debug.Log("press E to deliver water");
         }
     }
@@ -37,6 +41,7 @@ public class DeliveryPoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerNearby = false;
+            deliveryPrompt.SetActive(false);
         }
     }
 }

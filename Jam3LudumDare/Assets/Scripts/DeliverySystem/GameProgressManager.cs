@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class GameProgressManager : MonoBehaviour
 {
@@ -9,10 +10,19 @@ public class GameProgressManager : MonoBehaviour
     public int deliveriesCompleted = 0;
     public int cogwheels = 0;
     public int requiredCogwheels = 5;
+    public int totalDeliveries = 5;
+
+    // text displaying delivery progress
+    public TMP_Text deliveryCounter;
 
     void Awake()
     {
         instance = this;
+    }
+
+    void Start()
+    {
+        UpdateDeliveryCounter();
     }
 
     // called whenever the player completes a delivery
@@ -20,6 +30,9 @@ public class GameProgressManager : MonoBehaviour
     {
         deliveriesCompleted++;
         cogwheels++;
+
+        // update the delivery counter
+        UpdateDeliveryCounter();
 
         Debug.Log("delivery completed");
         Debug.Log("cogwheels: " + cogwheels);
@@ -29,5 +42,11 @@ public class GameProgressManager : MonoBehaviour
         {
             Debug.Log("SuperStructure unlocked");
         }
+    }
+
+    // updates the text shown on screen
+    void UpdateDeliveryCounter()
+    {
+        deliveryCounter.text = "Deliveries: " + deliveriesCompleted + "/" + totalDeliveries;
     }
 }
