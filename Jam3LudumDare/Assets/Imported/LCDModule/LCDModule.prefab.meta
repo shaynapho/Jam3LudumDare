@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 6913ad76bf5e425479ef5d22fa2b8870
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 343948
+  packageName: LCD Module
+  packageVersion: 1.0
+  assetPath: Assets/LCDModule/LCDModule.prefab
+  uploadId: 882518

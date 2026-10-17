@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: a74b07f3378f3ed44826dd40e139c09c
+AssetOrigin:
+  serializedVersion: 1
+  productId: 343948
+  packageName: LCD Module
+  packageVersion: 1.0
+  assetPath: Assets/LCDModule/Script/LCDModule.cs
+  uploadId: 882518

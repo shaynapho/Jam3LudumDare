@@ -1,0 +1,9 @@
+fileFormatVersion: 2
+guid: bd28e1c3471924d44a91a75544324bfa
+AssetOrigin:
+  serializedVersion: 1
+  productId: 343948
+  packageName: LCD Module
+  packageVersion: 1.0
+  assetPath: Assets/LCDModule/Script/SensorDataProvider.cs
+  uploadId: 882518
