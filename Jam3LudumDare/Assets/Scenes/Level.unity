@@ -480,7 +480,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalPosition.y
+<<<<<<< Updated upstream
       value: 128.7
+=======
+      value: 148.1
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -659,3 +663,7 @@ SceneRoots:
   - {fileID: 938406450}
   - {fileID: 1632352759}
   - {fileID: 1078358282}
+<<<<<<< Updated upstream
+=======
+  - {fileID: 2028597685}
+>>>>>>> Stashed changes
