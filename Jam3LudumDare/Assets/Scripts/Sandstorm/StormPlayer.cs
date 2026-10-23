@@ -1,17 +1,17 @@
-
 using UnityEngine;
 
 public class StormPlayer : MonoBehaviour
 {
     public float windMultiplier = 0.3f;
     public float speedMultiplier = 0.5f;
+    public float shelterDistance = 8f;
 
-    private Rigidbody rb;
-    private StormArea currentStorm;
-    private FirstPersonMovement movement;
+    Rigidbody rb;
+    StormArea storm;
+    FirstPersonMovement movement;
 
-    private float normalSpeed;
-    private float normalRunSpeed;
+    float normalSpeed;
+    float normalRunSpeed;
 
     void Start()
     {
@@ -24,43 +24,52 @@ public class StormPlayer : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        if (coll.TryGetComponent<StormArea>(out StormArea storm))
-        {
-            currentStorm = storm;
-        }
+        if (coll.TryGetComponent(out StormArea area))
+            storm = area;
     }
 
     void OnTriggerExit(Collider coll)
     {
-        if (coll.TryGetComponent<StormArea>(out StormArea storm)
-            && currentStorm == storm)
-        {
-            currentStorm = null;
-        }
+        if (coll.TryGetComponent(out StormArea area) && storm == area)
+            storm = null;
     }
 
     void FixedUpdate()
     {
-        bool inActiveStorm = currentStorm != null && currentStorm.stormActive;
+        bool exposed = storm != null && storm.stormActive && !IsSheltered();
 
-        // reduce movement speed during the storm
-        movement.speed = inActiveStorm ? normalSpeed * speedMultiplier : normalSpeed;
+        // slow player down during the storm
+        movement.speed = exposed ? normalSpeed * speedMultiplier : normalSpeed;
+        movement.runSpeed = exposed ? normalRunSpeed * speedMultiplier : normalRunSpeed;
 
-        movement.runSpeed = inActiveStorm ? normalRunSpeed * speedMultiplier : normalRunSpeed;
-
-        // push player in the wind direction
-        if (inActiveStorm)
+        // push player with the wind
+        if (exposed)
         {
-            Vector3 wind = currentStorm.direction.normalized;
+            Vector3 wind = storm.direction.normalized;
             wind.y = 0;
 
-            rb.MovePosition(rb.position + wind * currentStorm.strength * windMultiplier * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + wind * storm.strength *
+                windMultiplier * Time.fixedDeltaTime);
         }
+    }
+
+    bool IsSheltered()
+    {
+        Vector3 wind = storm.direction.normalized;
+        wind.y = 0;
+
+        return Physics.Raycast(
+            transform.position + Vector3.up,
+            -wind,
+            out RaycastHit hit,
+            shelterDistance,
+            ~0,
+            QueryTriggerInteraction.Ignore
+        ) && hit.collider.CompareTag("stormShelter");
     }
 
     void OnDisable()
     {
-        // restore movement speeds
         if (movement != null)
         {
             movement.speed = normalSpeed;

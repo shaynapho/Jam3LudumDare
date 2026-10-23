@@ -6,6 +6,7 @@ TagManager:
   tags:
   - stormArea
   - ball
+  - stormShelter
   layers:
   - Default
   - TransparentFX
