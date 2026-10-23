@@ -1,6 +1,4 @@
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class StormArea : MonoBehaviour
 {
@@ -9,6 +7,9 @@ public class StormArea : MonoBehaviour
     public float calmDuration = 10f;
     public float stormDuration = 12f;
     public bool stormActive = false;
+    public ParticleSystem sandDust;
+    public AudioSource calmWind;
+    public AudioSource strongWind;
 
     private float timer;
     private ParticleSystemForceField forceField;
@@ -24,6 +25,18 @@ public class StormArea : MonoBehaviour
 
         forceField.shape = ParticleSystemForceFieldShape.Box;
         timer = calmDuration;
+
+        if (sandDust != null)
+        {
+            sandDust.Stop();
+        }
+
+        // starts with calm wind
+        if (calmWind != null && strongWind != null)
+        {
+            calmWind.Play();
+            strongWind.Stop();
+        }
     }
 
     void Update()
@@ -34,13 +47,36 @@ public class StormArea : MonoBehaviour
         {
             stormActive = !stormActive;
 
-            if(stormActive)
+            if (stormActive)
             {
                 timer = stormDuration;
                 Debug.Log("sandstorm started");
             } else {
                 timer = calmDuration;
                 Debug.Log("sandstorm ended");
+            }
+
+            if (sandDust != null)
+            {
+                if (stormActive)
+                {
+                    sandDust.Play();
+                } else {
+                    sandDust.Stop();
+                }
+            }
+
+            // switch between calm and strong wind
+            if (calmWind != null && strongWind != null)
+            {
+                if (stormActive)
+                {
+                    calmWind.Stop();
+                    strongWind.Play();
+                } else {
+                    strongWind.Stop();
+                    calmWind.Play();
+                }
             }
         }
 

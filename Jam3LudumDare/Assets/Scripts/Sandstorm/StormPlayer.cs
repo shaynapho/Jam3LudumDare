@@ -1,3 +1,4 @@
+
 using UnityEngine;
 
 public class StormPlayer : MonoBehaviour
@@ -18,24 +19,31 @@ public class StormPlayer : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         movement = GetComponent<FirstPersonMovement>();
 
+        // save the player's original movement speeds
         normalSpeed = movement.speed;
         normalRunSpeed = movement.runSpeed;
     }
 
+    // check if player enters or leaves the storm area
     void OnTriggerEnter(Collider coll)
     {
         if (coll.TryGetComponent(out StormArea area))
+        {
             storm = area;
+        }
     }
 
     void OnTriggerExit(Collider coll)
     {
         if (coll.TryGetComponent(out StormArea area) && storm == area)
+        {
             storm = null;
+        }
     }
 
     void FixedUpdate()
     {
+        // check if storm is active and player isnt behind cover
         bool exposed = storm != null && storm.stormActive && !IsSheltered();
 
         // slow player down during the storm
@@ -48,11 +56,11 @@ public class StormPlayer : MonoBehaviour
             Vector3 wind = storm.direction.normalized;
             wind.y = 0;
 
-            rb.MovePosition(rb.position + wind * storm.strength *
-                windMultiplier * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + wind * storm.strength * windMultiplier * Time.fixedDeltaTime);
         }
     }
 
+    // check for a blockade between the player and the wind
     bool IsSheltered()
     {
         Vector3 wind = storm.direction.normalized;
@@ -68,6 +76,7 @@ public class StormPlayer : MonoBehaviour
         ) && hit.collider.CompareTag("stormShelter");
     }
 
+    // reset movement speeds if script gets disabled
     void OnDisable()
     {
         if (movement != null)
