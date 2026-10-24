@@ -627,7 +627,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &920207468
+--- !u!1001 &1008272786
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -635,6 +635,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 509879141427878009, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
+      propertyPath: ShapeModule.m_Scale.x
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2358367941494358710, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
       propertyPath: m_Name
       value: StormArea
@@ -649,7 +653,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5590042898222512342, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 45.3
       objectReference: {fileID: 0}
     - target: {fileID: 5590042898222512342, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -678,6 +682,18 @@ PrefabInstance:
     - target: {fileID: 5590042898222512342, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365845263105877460, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365845263105877460, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365845263105877460, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1361,4 +1377,4 @@ SceneRoots:
   - {fileID: 1689798490}
   - {fileID: 20920474}
   - {fileID: 2043067995}
-  - {fileID: 920207468}
+  - {fileID: 1008272786}
