@@ -86,6 +86,7 @@ Material:
     - _GlowOuter: 0.05
     - _GlowPower: 0.75
     - _LightAngle: 3.1416
+    - _OutlineWidth: 0.38
     - _Reflectivity: 10
     - _ScaleRatioC: 0.73125
     - _SpecularPower: 2
