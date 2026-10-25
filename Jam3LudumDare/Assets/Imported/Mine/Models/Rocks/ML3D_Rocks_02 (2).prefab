@@ -9,13 +9,25 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -9000755781366248654, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -9000755781366248654, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c262dcda9ccf5434586ea68fb09d952e, type: 2}
     - target: {fileID: -7505771117345782794, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7505771117345782794, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c262dcda9ccf5434586ea68fb09d952e, type: 2}
+    - target: {fileID: -6910629593184706975, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: -6910629593184706975, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
@@ -69,12 +81,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1768212954038963644, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -1768212954038963644, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: c262dcda9ccf5434586ea68fb09d952e, type: 2}
     - target: {fileID: -927199367670048503, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
       propertyPath: m_Name
       value: ML3D_Rocks_02 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: -830281631173899524, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
+      propertyPath: m_RenderingLayerMask
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -830281631173899524, guid: 58a5ab3dee2df4b7ca1055a0d6b8fe60, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
