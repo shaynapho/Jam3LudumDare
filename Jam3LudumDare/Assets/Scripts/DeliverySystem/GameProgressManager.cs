@@ -9,8 +9,8 @@ public class GameProgressManager : MonoBehaviour
     // tracks deliveries and collected cogwheels
     public int deliveriesCompleted = 0;
     public int cogwheels = 0;
-    public int requiredCogwheels = 5;
-    public int totalDeliveries = 5;
+    public int requiredCogwheels = 3;
+    public int totalDeliveries = 3;
 
     // text displaying delivery progress
     public TMP_Text deliveryCounter;

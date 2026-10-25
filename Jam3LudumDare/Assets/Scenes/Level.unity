@@ -18823,6 +18823,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 939978665933431688, guid: 7bba4090c1b01cf4db5e00fb817aa420, type: 3}
+      propertyPath: m_text
+      value: 'Deliveries: 0/3'
+      objectReference: {fileID: 0}
     - target: {fileID: 5540269448719031540, guid: 7bba4090c1b01cf4db5e00fb817aa420, type: 3}
       propertyPath: m_Name
       value: Delivery GUI
