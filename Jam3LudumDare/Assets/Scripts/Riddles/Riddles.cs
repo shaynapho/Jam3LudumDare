@@ -20,9 +20,9 @@ public class Riddles : MonoBehaviour
     [SerializeField] private KeyCode interactKey = KeyCode.E;
     [SerializeField] private KeyCode closeKey = KeyCode.Escape;
 
-    public UnityEvent onOpened;   // e.g. freeze player movement, unlock cursor
-    public UnityEvent onClosed;   // e.g. resume movement, lock cursor
-    public UnityEvent onSolved;   // e.g. open a door
+    public UnityEvent onOpened;
+    public UnityEvent onClosed;
+    public UnityEvent onSolved;
 
     private bool playerInside;
     private bool isOpen;
@@ -95,7 +95,6 @@ public class Riddles : MonoBehaviour
         onClosed?.Invoke();
     }
 
-    // Called when the player presses Enter in the input field.
     private void CheckAnswer(string input)
     {
         if (IsCorrect(input))
@@ -107,7 +106,7 @@ public class Riddles : MonoBehaviour
         else
         {
             inputField.text = "";
-            inputField.ActivateInputField(); // keep typing after a wrong guess
+            inputField.ActivateInputField();
         }
     }
 
@@ -141,6 +140,6 @@ public class Riddles : MonoBehaviour
         if (!other.CompareTag("Player")) return;
         playerInside = false;
         if (interactPrompt != null) interactPrompt.SetActive(false);
-        if (isOpen) CloseRiddle(); // auto-close if they walk away
+        if (isOpen) CloseRiddle();
     }
 }

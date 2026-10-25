@@ -9,6 +9,7 @@ public class MoveBoost : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            print("colliding");
             FirstPersonMovement fpsMovement = other.GetComponent<FirstPersonMovement>();
             Jump jumpScript = other.GetComponent<Jump>();
             fpsMovement.speed = 18;
