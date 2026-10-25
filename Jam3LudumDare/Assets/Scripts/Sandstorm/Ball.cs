@@ -33,6 +33,8 @@ public class Ball : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
+        Debug.Log("ball entered trigger: " + coll.name);
+
         if (coll.gameObject.tag == "stormArea")
         {
             stormZone = coll.gameObject;

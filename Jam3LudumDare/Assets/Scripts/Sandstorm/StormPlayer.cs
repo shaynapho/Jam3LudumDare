@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class StormPlayer : MonoBehaviour
@@ -16,6 +15,8 @@ public class StormPlayer : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("StormPlayer started on: " + gameObject.name);
+
         rb = GetComponent<Rigidbody>();
         movement = GetComponent<FirstPersonMovement>();
 
@@ -27,6 +28,9 @@ public class StormPlayer : MonoBehaviour
     // check if player enters or leaves the storm area
     void OnTriggerEnter(Collider coll)
     {
+        Debug.Log("storm detected: " + coll.name);
+        Debug.Log("Player entered trigger: " + coll.name);
+
         if (coll.TryGetComponent(out StormArea area))
         {
             storm = area;
