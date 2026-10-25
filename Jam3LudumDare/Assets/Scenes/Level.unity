@@ -9747,7 +9747,7 @@ Transform:
   m_GameObject: {fileID: 536393356}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 363.6, y: 21.4, z: -231.2}
+  m_LocalPosition: {x: 363.6, y: 18, z: -231.2}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -19785,8 +19785,16 @@ PrefabInstance:
       value: StormArea
       objectReference: {fileID: 0}
     - target: {fileID: 3429555703654483028, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
+      propertyPath: MaxDistance
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429555703654483028, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3429555703654483028, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 1
+      value: 0.21646118
       objectReference: {fileID: 0}
     - target: {fileID: 5590042898222512342, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
       propertyPath: m_LocalPosition.x
