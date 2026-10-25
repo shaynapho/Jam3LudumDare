@@ -3,7 +3,7 @@ using UnityEngine;
 public class StormArea : MonoBehaviour
 {
     public float strength = 25f;
-    public Vector3 direction = new Vector3(0,0,-1);
+    public Vector3 direction = new Vector3(0, 0, -1);
     public float calmDuration = 10f;
     public float stormDuration = 12f;
     public bool stormActive = false;
@@ -13,6 +13,8 @@ public class StormArea : MonoBehaviour
 
     private float timer;
     private ParticleSystemForceField forceField;
+    private BoxCollider stormCollider;
+    private Transform player;
 
     void Start()
     {
@@ -24,6 +26,18 @@ public class StormArea : MonoBehaviour
         }
 
         forceField.shape = ParticleSystemForceFieldShape.Box;
+
+        stormCollider = GetComponent<BoxCollider>();
+
+        // find the player using their movement script
+        FirstPersonMovement movement =
+            FindFirstObjectByType<FirstPersonMovement>();
+
+        if (movement != null)
+        {
+            player = movement.transform;
+        }
+
         timer = calmDuration;
 
         if (sandDust != null)
@@ -31,10 +45,14 @@ public class StormArea : MonoBehaviour
             sandDust.Stop();
         }
 
-        // starts with calm wind
-        if (calmWind != null && strongWind != null)
+        // start the calm wind audio
+        if (calmWind != null)
         {
             calmWind.Play();
+        }
+
+        if (strongWind != null)
+        {
             strongWind.Stop();
         }
     }
@@ -51,7 +69,9 @@ public class StormArea : MonoBehaviour
             {
                 timer = stormDuration;
                 Debug.Log("sandstorm started");
-            } else {
+            }
+            else
+            {
                 timer = calmDuration;
                 Debug.Log("sandstorm ended");
             }
@@ -61,23 +81,55 @@ public class StormArea : MonoBehaviour
                 if (stormActive)
                 {
                     sandDust.Play();
-                } else {
+                }
+                else
+                {
                     sandDust.Stop();
                 }
             }
 
-            // switch between calm and strong wind
+            // switches between calm and strong wind
             if (calmWind != null && strongWind != null)
             {
                 if (stormActive)
                 {
                     calmWind.Stop();
                     strongWind.Play();
-                } else {
+                }
+                else
+                {
                     strongWind.Stop();
                     calmWind.Play();
                 }
             }
+        }
+
+        // checks whether the player is inside the storm collider
+        bool playerInside = false;
+
+        if (player != null && stormCollider != null)
+        {
+            Vector3 localPosition =
+                transform.InverseTransformPoint(player.position);
+
+            Vector3 offset = localPosition - stormCollider.center;
+            Vector3 halfSize = stormCollider.size * 0.5f;
+
+            playerInside =
+                Mathf.Abs(offset.x) <= halfSize.x &&
+                Mathf.Abs(offset.y) <= halfSize.y &&
+                Mathf.Abs(offset.z) <= halfSize.z;
+        }
+
+        // mutes both sounds outside the storm zone
+        if (calmWind != null)
+        {
+            calmWind.mute = !playerInside;
+        }
+
+        if (strongWind != null)
+        {
+            strongWind.mute = !playerInside;
         }
 
         Vector3 finalForce = Vector3.zero;
