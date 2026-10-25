@@ -19784,6 +19784,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: StormArea
       objectReference: {fileID: 0}
+    - target: {fileID: 3429555703654483028, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5590042898222512342, guid: c3d9ddb8b0198448288b9429fd437df6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -117.7
