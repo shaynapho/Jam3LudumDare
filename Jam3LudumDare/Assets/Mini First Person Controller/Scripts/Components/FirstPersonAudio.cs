@@ -64,30 +64,33 @@ public class FirstPersonAudio : MonoBehaviour
 
     void FixedUpdate()
     {
-        // Play moving audio if the character is moving and on the ground.
-        float velocity = Vector3.Distance(CurrentCharacterPosition, lastCharacterPosition);
-        if (velocity >= velocityThreshold && groundCheck && groundCheck.isGrounded)
+        if (!PauseManager.isPaused)
         {
-            if (crouch && crouch.IsCrouched)
+            // Play moving audio if the character is moving and on the ground.
+            float velocity = Vector3.Distance(CurrentCharacterPosition, lastCharacterPosition);
+            if (velocity >= velocityThreshold && groundCheck && groundCheck.isGrounded)
             {
-                SetPlayingMovingAudio(crouchedAudio);
-            }
-            else if (character.IsRunning)
-            {
-                SetPlayingMovingAudio(runningAudio);
+                if (crouch && crouch.IsCrouched)
+                {
+                    SetPlayingMovingAudio(crouchedAudio);
+                }
+                else if (character.IsRunning)
+                {
+                    SetPlayingMovingAudio(runningAudio);
+                }
+                else
+                {
+                    SetPlayingMovingAudio(stepAudio);
+                }
             }
             else
             {
-                SetPlayingMovingAudio(stepAudio);
+                SetPlayingMovingAudio(null);
             }
-        }
-        else
-        {
-            SetPlayingMovingAudio(null);
-        }
 
-        // Remember lastCharacterPosition.
-        lastCharacterPosition = CurrentCharacterPosition;
+            // Remember lastCharacterPosition.
+            lastCharacterPosition = CurrentCharacterPosition;
+        }
     }
 
 
