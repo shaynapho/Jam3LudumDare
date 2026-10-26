@@ -27771,9 +27771,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Extra hints for those who find the riddles too hard.\n\nFlashlight riddle\r\n\"What
-    organ does an ophthalmologist work with?\"\r\n\r\nSpeed/Jump riddle\r\n\"What
-    should you break for good luck before a show?\" \r\n\r\nSandstorm riddle\r\n\"Whats
+  m_text: "Extra hints for those who find the riddles too hard.\n\nFlashlight Riddle\r\n\"What
+    organ does an ophthalmologist work with?\"\r\n\nJump Boost Riddle\r\n\"What should
+    you break for good luck before a show?\" \r\n\nStorm Protection Riddle\r\n\"Whats
     in an hour glass?\""
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 34a4a0c89db9414489be1315c76bc9f1, type: 2}
