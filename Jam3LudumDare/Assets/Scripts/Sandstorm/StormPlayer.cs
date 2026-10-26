@@ -50,11 +50,14 @@ public class StormPlayer : MonoBehaviour
         // check if storm is active and player isnt behind cover
         bool exposed = storm != null && storm.stormActive && !IsSheltered();
 
-        if (PlayerManager.gogglesCollected == false)
+        if (PlayerManager.gogglesCollected)
         {
-            // slow player down during the storm
-            movement.speed = exposed ? normalSpeed * speedMultiplier : normalSpeed;
-            movement.runSpeed = exposed ? normalRunSpeed * speedMultiplier : normalRunSpeed;
+            exposed = false;
+        }
+
+        // slow player down during the storm
+        movement.speed = exposed ? normalSpeed * speedMultiplier : normalSpeed;
+        movement.runSpeed = exposed ? normalRunSpeed * speedMultiplier : normalRunSpeed;
 
             // push player with the wind
             if (exposed)
@@ -64,7 +67,6 @@ public class StormPlayer : MonoBehaviour
 
                 rb.MovePosition(rb.position + wind * storm.strength * windMultiplier * Time.fixedDeltaTime);
             }
-        }
     }
 
     // check for a blockade between the player and the wind
